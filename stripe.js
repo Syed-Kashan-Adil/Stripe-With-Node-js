@@ -58,10 +58,10 @@ const createPaymentIntent = async (amount, customer, payment_method) => {
   }
 };
 
-const confirmCardPayment = async payment_method_id => {
+const confirmCardPayment = async payment_intent_id => {
   try {
     const confirmedPayment = await stripe.paymentIntents.confirm(
-      payment_method_id
+      payment_intent_id
     );
     return confirmedPayment;
   } catch (err) {

@@ -81,8 +81,8 @@ app.post("/create_payment_intent", async (request, response) => {
 
 app.post("/confirm_card_payment", async (request, response) => {
   try {
-    const { payment_method_id } = request.body;
-    const confirmedCardPayment = await confirmCardPayment(payment_method_id);
+    const { payment_intent_id } = request.body;
+    const confirmedCardPayment = await confirmCardPayment(payment_intent_id);
     return response.status(200).send({ data: confirmedCardPayment });
   } catch (err) {
     return response.status(400).send({ data: err });
